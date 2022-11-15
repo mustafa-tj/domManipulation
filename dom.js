@@ -32,7 +32,7 @@
 
 // get element by classname
 
-var items = document.getElementsByClassName('list-group-item');
+// var items = document.getElementsByClassName('list-group-item');
 // console.log(items);
 // console.log(items[1]);
 // items[1].textContent = 'Hello';
@@ -47,11 +47,17 @@ var items = document.getElementsByClassName('list-group-item');
 //     items[i].style.backgroundColor = 'grey';
 // }
 
-items[2].style.backgroundColor = 'green';
-for(var i =0; i < items.length; i++){
-    items[i].style.fontWeight = 'bold';
-}
+// items[2].style.backgroundColor = 'green';
+// for(var i =0; i < items.length; i++){
+//     items[i].style.fontWeight = 'bold';
+// }
 
+//getelementsbytagname//
+
+var li = document.getElementsByTagName('li');
+for(var i = 0; i < li.length ; i++){
+    li[i].style.backgroundColor = 'grey';
+}
 
 
 
