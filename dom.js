@@ -60,44 +60,124 @@
 // }
 
 //queryselector//
-var header = document.querySelector('#main-header');
-header.style.borderBottom = 'solid 4px #ccc'
+// var header = document.querySelector('#main-header');
+// header.style.borderBottom = 'solid 4px #ccc'
 
-var input = document.querySelector('input');
-input.value = 'Hello World'
+// var input = document.querySelector('input');
+// input.value = 'Hello World'
 
-var submit = document.querySelector('input[type="submit"]');
-submit.value = 'Send'
+// var submit = document.querySelector('input[type="submit"]');
+// submit.value = 'Send'
 
-var item = document.querySelector('.list-group-item');
-item.style.color = 'red';
+// var item = document.querySelector('.list-group-item');
+// item.style.color = 'red';
 
-var secondItem = document.querySelector('.list-group-item:nth-child(2)');
-secondItem.style.backgroundColor = 'green';
+// var secondItem = document.querySelector('.list-group-item:nth-child(2)');
+// secondItem.style.backgroundColor = 'green';
 
-var lastItem = document.querySelector('.list-group-item:last-child');
-lastItem.style.color = 'white';
+// var lastItem = document.querySelector('.list-group-item:last-child');
+// lastItem.style.color = 'white';
 
 
 
 //queryselectorall//
 
-var titles = document.querySelectorAll('.title');
-console.log(titles);
-titles[0].textContent = 'Hello';
+// var titles = document.querySelectorAll('.title');
+// console.log(titles);
+// titles[0].textContent = 'Hello';
 
-var itemss = document.querySelectorAll('.list-group-item');
-itemss[2].style.color = 'green';
+// var itemss = document.querySelectorAll('.list-group-item');
+// itemss[2].style.color = 'green';
 
 
-var odd = document.querySelectorAll('li:nth-child(odd)');
+// var odd = document.querySelectorAll('li:nth-child(odd)');
 
-for (var i = 0; i < odd.length; i++){
-    odd[i].style.backgroundColor = 'green';
-}
+// for (var i = 0; i < odd.length; i++){
+//     odd[i].style.backgroundColor = 'green';
+// }
 
-var even = document.querySelectorAll('li:nth-child(even)');
+// var even = document.querySelectorAll('li:nth-child(even)');
 
-for (var i = 0; i < even.length; i++){
-    even[i].style.backgroundColor = 'pink';
-}
+// for (var i = 0; i < even.length; i++){
+//     even[i].style.backgroundColor = 'pink';
+// }
+
+
+// Traversing the DOM //
+var itemList = document.querySelector('#items');
+// parentnode property
+// console.log(itemList.parentNode);
+// itemList.parentNode.style.backgroundColor = '#f4f4f4';
+// console.log(itemList.parentNode.parentNode.parentNode);
+
+// // parent element
+
+// console.log(itemList.parentElement);
+// itemList.parentElement.style.backgroundColor = 'pink';
+// console.log(itemList.parentElement.parentElement.parentElement);
+
+// // childnodes
+// console.log(itemList.childNodes);
+// console.log(itemList.children[1]);
+// itemList.children[1].style.backgroundColor = 'yellow';
+
+// // firstchild
+// console.log(itemList.firstChild);
+
+// // firstelementchild
+// console.log(itemList.firstElementChild);
+// itemList.firstElementChild.textContent = 'Hello 1';
+
+// // lastchild
+// console.log(itemList.lastChild);
+
+// // lastelementchild
+// console.log(itemList.lastElementChild);
+// itemList.lastElementChild.textContent = 'Hello 4';
+
+// //nextsiblinng
+// console.log(itemList.nextSibling);
+
+// // nextelementsibling
+// console.log(itemList.nextElementSibling);
+
+// //previoussibling
+// console.log(itemList.previousSibling);
+
+// //previouselementsibling
+// console.log(itemList.previousElementSibling);
+// itemList.previousElementSibling.style.color = 'red';
+
+// createelement
+
+// create a div
+var newDiv = document.createElement('div');
+
+// Add class
+newDiv.className = 'hello';
+
+// add id
+newDiv.id = 'hello1';
+
+// add attribute
+newDiv.setAttribute('title','Hello Div');
+
+// create text node
+var newDivText = document.createTextNode('Hello World');
+
+// add text to div
+newDiv.appendChild(newDivText);
+
+var container = document.querySelector('header .container');
+var h1 = document.querySelector('header h1');
+
+
+console.log(newDiv);
+
+container.insertBefore(newDiv , h1);
+newDiv.style.color = 'red';
+newDiv.style.fontSize = '21px';
+
+// Now go head and add HEllo word before Item Lister
+// Now go head and add HEllo word before Item 1
+
