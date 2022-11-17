@@ -104,7 +104,7 @@
 
 
 // Traversing the DOM //
-var itemList = document.querySelector('#items');
+// var itemList = document.querySelector('#items');
 // parentnode property
 // console.log(itemList.parentNode);
 // itemList.parentNode.style.backgroundColor = '#f4f4f4';
@@ -148,36 +148,117 @@ var itemList = document.querySelector('#items');
 // console.log(itemList.previousElementSibling);
 // itemList.previousElementSibling.style.color = 'red';
 
-// createelement
+// // createelement
 
-// create a div
-var newDiv = document.createElement('div');
+// // create a div
+// var newDiv = document.createElement('div');
 
-// Add class
-newDiv.className = 'hello';
+// // Add class
+// newDiv.className = 'hello';
 
-// add id
-newDiv.id = 'hello1';
+// // add id
+// newDiv.id = 'hello1';
 
-// add attribute
-newDiv.setAttribute('title','Hello Div');
+// // add attribute
+// newDiv.setAttribute('title','Hello Div');
 
-// create text node
-var newDivText = document.createTextNode('Hello World');
+// // create text node
+// var newDivText = document.createTextNode('Hello World');
 
-// add text to div
-newDiv.appendChild(newDivText);
+// // add text to div
+// newDiv.appendChild(newDivText);
 
-var container = document.querySelector('header .container');
-var h1 = document.querySelector('header h1');
+// var container = document.querySelector('header .container');
+// var h1 = document.querySelector('header h1');
 
 
-console.log(newDiv);
+// console.log(newDiv);
 
-container.insertBefore(newDiv , h1);
-newDiv.style.color = 'red';
-newDiv.style.fontSize = '21px';
+// container.insertBefore(newDiv , h1);
+// newDiv.style.color = 'red';
+// newDiv.style.fontSize = '21px';
 
-// Now go head and add HEllo word before Item Lister
-// Now go head and add HEllo word before Item 1
+// // Now go head and add HEllo word before Item Lister
+// // Now go head and add HEllo word before Item 1
+
+
+// 
+
+var form = document.getElementById('addForm');
+var itemList = document.getElementById('items');
+var filter = document.getElementById('filter');
+
+
+
+// form submit event 
+form.addEventListener('submit', addItem);
+// delete event
+itemList.addEventListener('click',removeItem);
+// filter event
+filter.addEventListener('keyup',filterItems);
+
+
+// add item
+function addItem(e){
+    e.preventDefault();
+
+    // get input value
+    var newItem = document.getElementById('item').value;
+
+    // create new li element
+    var li = document.createElement('li');
+    // add classname
+    li.className = 'list-group-item';
+    // add text node with input value
+    li.appendChild(document.createTextNode(newItem));
+
+    // create delete button element
+    var deleteBtn = document.createElement('button');
+
+    // add classes to delete button
+    deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+    // append text node
+    deleteBtn.appendChild(document.createTextNode('X'))
+    // append button to li
+    li.appendChild(deleteBtn);
+
+
+    // append li to list
+    itemList.appendChild(li);
+
+}
+// remove item
+function removeItem(e){
+    if(e.target.classList.contains('delete')){
+        if(confirm('Are you sure?')){
+            var li = e.target.parentElement;
+            itemList.removeChild(li);
+        }
+    }
+}
+
+//filter items
+function filterItems(e){
+    // convert text to lowercase
+    var text = e.target.value.toLowerCase();
+    // get lis
+    var items = itemList.getElementsByTagName('li');
+    // convert to an array
+    Array.from(items).forEach(function(item){
+        var itemName = item.firstChild.textContent;
+        if(itemName.toLowerCase().indexOf(text) != -1){
+            item.style.display = 'block';
+        } else{
+            item.style.display = 'none';
+        }
+    })
+}
+
+
+
+
+
+
+
+
 
